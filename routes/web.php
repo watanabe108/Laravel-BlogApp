@@ -16,24 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/top','UserController@index');
 Route::get('/detail','UserController@detail');
 
-Route::get('/reset/email/pass','ResetEmailPassController@index');
-Route::post('/reset/email/pass','ResetEmailPassController@post');
+Route::get('/reset/email/pass','ResetEmailPassController@index')->middleware('auth');
+Route::post('/reset/email/pass','ResetEmailPassController@post')->middleware('auth');
 
-Route::get('/','CaretakerController@index');
-Route::post('/','CaretakerController@re_index');
-Route::post('/delete','CaretakerController@delete');
-Route::post('/change','CaretakerController@change');
-Route::post('/create','CaretakerController@create');
-Route::get('/log/create','LogController@create');
-Route::get('/log/create/conf','LogController@createConf');
-Route::post('/log/create/conf','LogController@createConf');
+Route::get('/','CaretakerController@index')->middleware('auth');
+Route::post('/','CaretakerController@re_index')->middleware('auth');
+Route::post('/delete','CaretakerController@delete')->middleware('auth');
+Route::post('/change','CaretakerController@change')->middleware('auth');
+Route::post('/create','CaretakerController@create')->middleware('auth');
+Route::get('/log/create','LogController@create')->middleware('auth');
+Route::get('/log/create/conf','LogController@createConf')->middleware('auth');
+Route::post('/log/create/conf','LogController@createConf')->middleware('auth');
 Route::get('/log/change_delete/select','LogController@change_delete_select');
-Route::get('/log/change','LogController@change');
-Route::post('/log/change','LogController@change');
-Route::get('/log/change/conf','LogController@changeConf');
-Route::post('/log/change/conf','LogController@changeConf');
-Route::get('/log/delete/conf','LogController@deleteConf');
-Route::post('/log/delete/conf','LogController@deleteConf');
+Route::get('/log/change','LogController@change')->middleware('auth');
+Route::post('/log/change','LogController@change')->middleware('auth');
+Route::get('/log/change/conf','LogController@changeConf')->middleware('auth');
+Route::post('/log/change/conf','LogController@changeConf')->middleware('auth');
+Route::get('/log/delete/conf','LogController@deleteConf')->middleware('auth');
+Route::post('/log/delete/conf','LogController@deleteConf')->middleware('auth');
 
 Auth::routes();
 
